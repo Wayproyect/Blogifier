@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using System.Threading;
 
@@ -26,23 +27,34 @@ namespace App
 
                 try
                 {
-                    if (context.Database.GetPendingMigrations().Any())
-                    {
-                        context.Database.Migrate();
-                    }
+                    context.Database.Migrate();
                 }
                 catch { }
 
                 // load application settings from appsettings.json
                 var app = services.GetRequiredService<IAppService<AppItem>>();
                 AppConfig.SetSettings(app.Value);
+                var userMgr = (UserManager<AppUser>)services.GetRequiredService(typeof(UserManager<AppUser>));
+                if (!userMgr.Users.Any(a => a.UserName == "admin"))
+                {
+                    userMgr.CreateAsync(new AppUser { UserName = "admin", Email = "admin@us.com" }, "@dm1n").Wait();
+                    context.Authors.Add(new Author
+                    {
+                        AppUserName = "admin",
+                        Email = "admin@us.com",
+                        DisplayName = "Administrator",
+                        Avatar = "data/admin/avatar.png",
+                        Bio = "<p>Something about <b>administrator</b>, maybe HTML or markdown formatted text goes here.</p><p>Should be customizable and editable from user profile.</p>",
+                        IsAdmin = true,
+                        Created = DateTime.UtcNow.AddDays(-120)
+                    });
+                    context.SaveChanges();
+                }
 
                 if (app.Value.SeedData)
                 {
-                    var userMgr = (UserManager<AppUser>)services.GetRequiredService(typeof(UserManager<AppUser>));
-                    if (!userMgr.Users.Any())
+                    if (!userMgr.Users.Any(a => a.UserName == "demo"))
                     {
-                        userMgr.CreateAsync(new AppUser { UserName = "admin", Email = "admin@us.com" }, "admin").Wait();
                         userMgr.CreateAsync(new AppUser { UserName = "demo", Email = "demo@us.com" }, "demo").Wait();
                     }
 

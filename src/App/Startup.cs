@@ -149,11 +149,5 @@ namespace App
                     template: "{controller=Blog}/{action=Index}/{id?}");
             });
         }
-
-        [Conditional("RELEASE")]
-        private static void RunDbMigrations(DbContext context)
-        {
-            context.Database.Migrate();
-        }
     }
 }

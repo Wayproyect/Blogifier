@@ -19,4 +19,5 @@ RUN dotnet publish App.csproj -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+RUN ls /app/data -la
 ENTRYPOINT ["dotnet", "App.dll"]
