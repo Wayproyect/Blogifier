@@ -1,15 +1,15 @@
-version: '3.4'
+version: '3.0'
 
 services:
   blogifier:
     image: blogifier
     container_name: blogifier
+    volumes:
+      - ~/www/wayproyect.com/blog/data:/app/data
+      - ~/www/wayproyect.com/blog/wwwroot/data:/app/wwwroot/data
     build:
       context: .
-      dockerfile: src/App/Dockerfile
-    #volumes:
-    #  - ./volumes/app/wwwroot:/app/wwwroot
-    #  - ./volumes/data:/app/data
+      dockerfile: src/App/Dockerfile          
     restart: on-failure
     ports:
       - "5002:80"

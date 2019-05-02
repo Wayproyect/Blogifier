@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
@@ -147,6 +148,12 @@ namespace App
                     name: "default",
                     template: "{controller=Blog}/{action=Index}/{id?}");
             });
+        }
+
+        [Conditional("RELEASE")]
+        private static void RunDbMigrations(DbContext context)
+        {
+            context.Database.Migrate();
         }
     }
 }
