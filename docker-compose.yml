@@ -9,7 +9,7 @@ services:
       dockerfile: src/App/Dockerfile
     volumes:
       - ./volumes/app/wwwroot:/app/wwwroot
-      - ./volumes/app/app.db:/app/app.db
+      - ./volumes/data:/app/data
     restart: on-failure
     ports:
       - "5002:80"

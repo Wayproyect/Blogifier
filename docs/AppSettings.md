@@ -3,7 +3,7 @@ Global application settings saved in the `appsettings.json` file.
 ```
 "Blogifier": {
   "DbProvider": "SQLite",
-  "ConnString": "DataSource=app.db",
+  "ConnString": "DataSource=data/app.db",
   "Avatar": "lib/img/avatar.jpg",
   "ImportTypes": "zip,7z,xml,pdf,doc,docx,xls,xlsx,mp3,avi",
   "ImageExtensions": "png,jpg,gif,bmp,tiff",
