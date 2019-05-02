@@ -1,5 +1,8 @@
 .bf-sidebar {
   background-color: #f2f2f2;
+  @media screen and (max-width: 992px) {
+    /*display: none;*/
+  }
   @media screen and (min-width: 992px) {
     min-height: 100%;
     width: $width-sidebar;
@@ -8,8 +11,5 @@
     top: 0;
     bottom: 0;
     overflow-y: auto;
-  }
-  @media screen and (max-width: 991px) {
-    display: none;
   }
 }
