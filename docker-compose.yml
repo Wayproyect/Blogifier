@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  blogifier:
+    image: blogifier
+    container_name: blogifier
+    build:
+      context: .
+      dockerfile: src/App/Dockerfile
+    restart: on-failure
+    ports:
+      - "5002:80"
