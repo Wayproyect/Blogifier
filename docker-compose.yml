@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: src/App/Dockerfile
     volumes:
-      - ./volumes/app/wwwroot:/usr/app/wwwroot
-      - ./volumes/app/app.db:/usr/app/app.db
+      - ./volumes/app/wwwroot:/app/wwwroot
+      - ./volumes/app/app.db:/app/app.db
     restart: on-failure
     ports:
       - "5002:80"
