@@ -1,12 +1,12 @@
-version: '3.0'
+version: '3.2'
 
 services:
   blogifier:
     image: blogifier
     container_name: blogifier
     volumes:
-      - ~/www/wayproyect.com/blog/data:/app/data
-      - ~/www/wayproyect.com/blog/wwwroot/data:/app/wwwroot/data
+      - ~/wayproyect.com/blog/data:/app/data
+      - ~/wayproyect.com/blog/wwwroot/data:/app/wwwroot/data
     build:
       context: .
       dockerfile: src/App/Dockerfile          
