@@ -11,6 +11,13 @@ namespace Core.Data
         public bool SeedData { get; set; }
     }
 
+    public class DisqusItem
+    {
+        public bool Enabled { get; set; }
+        public string BlogUrl { get; set; }
+        public string DisqusUrl { get; set; }
+    }
+
     public class BlogItem
     {
         [Required]

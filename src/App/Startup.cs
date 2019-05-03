@@ -41,6 +41,9 @@ namespace App
 
             services.AddAppSettings<AppItem>(section);
 
+            var disqus = Configuration.GetSection("Disqus");
+            services.AddAppSettings<DisqusItem>(disqus);
+
             if (section.GetValue<string>("DbProvider") == "SqlServer")
             {
                 AppSettings.DbOptions = options => options.UseSqlServer(section.GetValue<string>("ConnString"));
