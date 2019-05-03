@@ -11,10 +11,10 @@ RUN dotnet restore src/App/App.csproj
 COPY . .
 
 WORKDIR /src/src/App
-RUN dotnet build App.csproj -c Release -o /app
+RUN dotnet build App.csproj -c Release -o /app --no-restore
 
 FROM build AS publish
-RUN dotnet publish App.csproj -c Release -o /app
+RUN dotnet publish App.csproj -c Release -o /app --no-restore
 
 FROM base AS final
 WORKDIR /app
