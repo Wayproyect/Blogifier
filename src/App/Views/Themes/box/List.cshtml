@@ -109,8 +109,14 @@
                         </div>
                         <div class="post-body">
                             <ul class="post-categories clearfix">
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Microsoft</a></li>
+                                @if (!string.IsNullOrEmpty(item.Categories))
+                                {
+                                    var cats = item.Categories.Split(',');
+                                    foreach (var cat in cats)
+                                    {
+                                        <li><a href="~/categories/@cat">@cat</a></li>
+                                    }
+                                }
                                 @if (item.Featured)
                                 {
                                 <li><a class="post-featrued-label"><i class="fa fa-star"></i> Featured</a></li>
