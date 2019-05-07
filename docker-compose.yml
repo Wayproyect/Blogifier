@@ -13,4 +13,3 @@ services:
     restart: on-failure
     ports:
       - "5002:80"
-    
