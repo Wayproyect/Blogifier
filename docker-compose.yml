@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   blogifier:
-    image: blogifier
+    image: docker-registry.wayproyect.com/blogifier
     container_name: blogifier
     volumes:
       - ~/wayproyect.com/blog/data:/app/data
