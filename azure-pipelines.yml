@@ -10,12 +10,27 @@ variables:
   buildConfiguration: 'Release'
   imageTag: docker-registry.wayproyect.com/blogifier
 
-steps:
-- script: |
-    docker-compose build
-    docker login -u $(user) -p $(pswd) docker-registry.wayproyect.com
-    docker push $(imageTag)
-  env:
-    user: $(dockerUser)
-    pswd: $(dockerPassword)
-#displayName: 'dotnet build $(buildConfiguration)'
+stages:
+  - stage: Build
+    jobs:
+    - job: BuildSrc
+      steps:
+      - script: dotnet build --configuration $(buildConfiguration)
+      displayName: 'dotnet build $(buildConfiguration)'
+  - stage: Test
+    jobs:
+    - job: TestSrc
+      steps:
+      - script: echo No Tests
+  - stage: Deploy
+    jobs:
+    - job: Deploy
+      steps:
+      - script: |
+          docker-compose build
+          docker login -u $(user) -p $(pswd) docker-registry.wayproyect.com
+          docker push $(imageTag)
+        env:
+          user: $(dockerUser)
+          pswd: $(dockerPassword)
+        displayName: 'docker push $(imageTag)'
