@@ -13,9 +13,6 @@ variables:
 steps:
 - script: |
     docker-compose build
-    docker login -u $(user) -p $(pswd) docker-registry.wayproyect.com
+    docker login -u $(dockerUser) -p $(dockerPassword) docker-registry.wayproyect.com
     docker push $(imageTag)
-  env:
-    user: $(dockerUser)
-    pswd: $(dockerPassword)
-  displayName: 'docker push $(imageTag)'
+  displayName: 'docker push $(imageTag) $(dockerUser)'
