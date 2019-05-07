@@ -8,7 +8,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  imageTag: docker-registry.wayproyect.com/blog
+  imageTag: docker-registry.wayproyect.com/blogifier
 
 steps:
 - script: |
