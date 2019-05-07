@@ -8,7 +8,14 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  imageTag: docker-registry.wayproyect.com/blog
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: |
+    docker-compose build
+    docker login -u $(user) -p $(pswd) docker-registry.wayproyect.com
+    docker push $(imageTag)
+  env:
+    user: $(dockerUser)
+    pswd: $(dockerPassword)
+#displayName: 'dotnet build $(buildConfiguration)'
