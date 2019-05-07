@@ -1,8 +1,8 @@
-## What is Blogifier
+# Blogifier
+[![Build Status](https://dev.azure.com/wayproyect/wayproyect/_apis/build/status/Wayproyect.Blogifier?branchName=master)](https://dev.azure.com/wayproyect/wayproyect/_build/latest?definitionId=1&branchName=master)
 
 Blogifier is simple, beautiful, light-weight open source blog written in .NET Core. This cross-platform, highly extendable and customizable web application brings all the best blogging features in small, portable package.
 
-[![Build Status](https://dev.azure.com/rtur/Blogifier/_apis/build/status/blogifierdotnet.Blogifier)](https://dev.azure.com/rtur/Blogifier/_build/latest?definitionId=3)
 
 ## System Requirements
 
@@ -27,5 +27,7 @@ The [demo site](http://blogifier.azurewebsites.net) is a playground to check out
 ![demo](https://user-images.githubusercontent.com/1932785/48745555-7f69e880-ec31-11e8-9d8e-b47d7ab37895.png)
 
 ## Live blog
+Check our blog that runs with Blogifier.Check our blog that running on Blogifier.
 
-Can also check out [developer's blog](http://rtur.net) running on Blogifier.
+* [Creator Blog](http://rtur.net) 
+* [Wayproyect Blog](http://rtur.net) 
