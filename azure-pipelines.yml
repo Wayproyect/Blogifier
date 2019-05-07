@@ -2,24 +2,22 @@
 # Build and test ASP.NET Core web applications targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/vsts/pipelines/languages/dotnet-core
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+
 variables:
   buildConfiguration: 'Release'
-  imageTag: docker-registry.wayproyect.com/blogifier
 
-jobs:
-- job: Build
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
+steps:
+- script: |
       dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- job: Deploy
-  pool:
-    vmImage: 'Ubuntu 16.04'
-  steps:
-  - script: |
-      docker-compose build
-      docker login -u $(dockerUser) -p $(dockerPassword) docker-registry.wayproyect.com
-      docker push $(imageTag)
-  displayName: 'docker push $(imageTag) $(dockerUser)'
+# - script: |
+#     docker-compose build
+#     docker login -u $(user) -p $(pswd) docker-registry.wayproyect.com
+#     docker push $(imageTag)
+#   env:
+#     user: $(dockerUser)
+#     pswd: $(dockerPassword)
+#   displayName: 'docker push $(imageTag)'
