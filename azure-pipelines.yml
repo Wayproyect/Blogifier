@@ -17,7 +17,7 @@ steps:
       dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=%CI_PROJECT_ROOT_PATH%/utests_results/ /p:Exclude=[xunit*]*
   displayName: 'dotnet tests'
 - script: |
-      docker build -f ./src/App/Dockerfile -t docker-registry.wayproyect.com/blogifier:amd64
+      docker build -f ./src/App/Dockerfile -t docker-registry.wayproyect.com/blogifier:amd64 .
   displayName: 'build docker image tests docker-registry.wayproyect.com/blogifier'
 # - script: |
 #     docker-compose build
