@@ -1,5 +1,5 @@
 # Blogifier
-[![Build Status](https://dev.azure.com/wayproyect/wayproyect/_apis/build/status/Wayproyect.Blogifier?branchName=master)](https://dev.azure.com/wayproyect/wayproyect/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/wayproyect/Blogway/_apis/build/status/Wayproyect.Blogifier?branchName=master)](https://dev.azure.com/wayproyect/Blogway/_build/latest?definitionId=4&branchName=master)
 
 Blogifier is simple, beautiful, light-weight open source blog written in .NET Core. This cross-platform, highly extendable and customizable web application brings all the best blogging features in small, portable package.
 
