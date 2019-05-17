@@ -30,4 +30,4 @@ The [demo site](http://blogifier.azurewebsites.net) is a playground to check out
 Check our blog that runs with Blogifier.Check our blog that running on Blogifier.
 
 * [Creator Blog](http://rtur.net) 
-* [Wayproyect Blog](http://rtur.net) 
+* [Wayproyect Blog](https://blog.wayproyect.com) 
